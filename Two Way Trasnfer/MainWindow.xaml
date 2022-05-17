@@ -27,10 +27,25 @@
             <MenuItem Header="Contabilidad">
                 <MenuItem x:Name="ContraRecibos" Header="Contra Recibos" Click="ContraRecibos_Click"></MenuItem>
                 <MenuItem x:Name="RemitentesDestinatarios" Header="Remitentes Destinatarios" Click="RemitentesDestinatarios_Click" ></MenuItem>
-            </MenuItem>
+                <MenuItem x:Name="Clientes" Header="Tarifas" Click="Clientes_Click" ></MenuItem>
+                <MenuItem x:Name="CatalogoCuentas" Header="Catalogo de Cuentas" Click="CatalogoCuentas_Click"  ></MenuItem>
+                <MenuItem x:Name="XPO" Header="XPO" Click="XPO_Click"  ></MenuItem>
+                <MenuItem x:Name="FacturasEmitidas" Header="Facturas Emitidas" Click="FacturasEmitidas_Click"></MenuItem>
+                <MenuItem x:Name="CAPSIN" Header="CAPSIN" Click="CAPSIN_Click"></MenuItem>
+                <MenuItem x:Name="FormatoCostos" Header="Formato Costos" Click="FormatoCostos_Click" ></MenuItem>
+                <MenuItem x:Name="FacturasProveedores" Header="Facturas Proveedores" Click="FacturasProveedores_Click" ></MenuItem>
 
+            </MenuItem>
+            <MenuItem Header="Administracion">
+                <MenuItem x:Name="Celulares" Header="Celulares" Click="Celulares_Click"></MenuItem>
+              
+            </MenuItem>
             <MenuItem Header="Diesel">
                 <MenuItem x:Name="Importes_Diarios" Header="Importes Diarios" Click="Importes_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Permisionarios">
+                <MenuItem x:Name="Permisionarios" Header="Permisionarios" Click="Permisionarios_Click"></MenuItem>
+                <MenuItem x:Name="Unidades_Permisionarios" Header="Unidades Permisionarios" Click="Unidades_Permisionarios_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="Varios">
                 <MenuItem x:Name="AppPrintPDF" Header="Imprimir PDFS" Click="PrintPDF_Click" ></MenuItem>

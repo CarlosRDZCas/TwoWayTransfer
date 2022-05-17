@@ -1,0 +1,25 @@
+﻿<Controls:MetroWindow x:Class="Two_Way_Trasnfer.FacturasProveedores"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Two_Way_Trasnfer"
+        mc:Ignorable="d"
+        Title="Facturas Proveedores" Height="451" Width="1080" WindowState="Maximized" ResizeMode="CanMinimize" >
+    <Grid>
+        <DataGrid x:Name="dgProveedoresFacturas"  Margin="0,83,0,0"  AutoGeneratingColumn="dgProveedoresFacturas_AutoGeneratingColumn" CanUserAddRows="False" CanUserDeleteRows="False" ColumnWidth="Auto" BorderBrush="#B2008A00"/>
+        <Button x:Name="bntProcesar" Content="Procesar" Margin="0,40,3,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="37" Click="bntProcesar_Click" HorizontalAlignment="Left" Width="107">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.673"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Label x:Name="lblTitle" Content="Facturas Proveedores" VerticalAlignment="Top" FontFamily="Arial" FontSize="28" FontWeight="Bold" HorizontalAlignment="Right" Width="304" Height="39" FontStretch="Expanded" FontStyle="Oblique" VerticalContentAlignment="Center" UseLayoutRounding="False" Background="#FF33A133"/>
+
+    </Grid>
+</Controls:MetroWindow>

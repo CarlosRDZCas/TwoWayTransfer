@@ -26,41 +26,16 @@ namespace Two_Way_Trasnfer
         SqlConnection connection = new SqlConnection("Data Source=TWL; Database=TWT; Initial Catalog=TWT ;User ID=sa; Password = Tw*way2408");
         List<Proveedor> Lista = new List<Proveedor>();
         public int numero { get; set; }
+
         public BuscarProveedor()
         {
             InitializeComponent();
-            connection.Open();
-            SqlCommand sqlComm = new SqlCommand("NumProv", connection);
-            sqlComm.CommandType = CommandType.StoredProcedure;
-            SqlDataReader reader = sqlComm.ExecuteReader();            
-            while (reader.Read())
+            txtNombre.Focus();
+            try
             {
-                Proveedor prov = new Proveedor();
-                prov.Numero = Convert.ToInt32(reader["numero"].ToString());
-                prov.Nombre = reader["nombre"].ToString();
-                prov.RFC = reader["rfc"].ToString();
-                Lista.Add(prov);
-            }
-            connection.Close();
-            dgvProveedores.ItemsSource = Lista;
-            dgvProveedores.CanUserAddRows = false;
-            dgvProveedores.CanUserDeleteRows = false;
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void btnBuscar_Click(object sender, RoutedEventArgs e)
-        {
-            if (txtNombre.Text!="")
-            {
-                List<Proveedor> Lista = new List<Proveedor>();
                 connection.Open();
-                SqlCommand sqlComm = new SqlCommand("ProveedorLike", connection);
+                SqlCommand sqlComm = new SqlCommand("NumProv", connection);
                 sqlComm.CommandType = CommandType.StoredProcedure;
-                sqlComm.Parameters.AddWithValue("@nombre", txtNombre.Text);
                 SqlDataReader reader = sqlComm.ExecuteReader();
                 while (reader.Read())
                 {
@@ -70,8 +45,50 @@ namespace Two_Way_Trasnfer
                     prov.RFC = reader["rfc"].ToString();
                     Lista.Add(prov);
                 }
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show("Error " + er.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
                 connection.Close();
                 dgvProveedores.ItemsSource = Lista;
+                dgvProveedores.CanUserAddRows = false;
+                dgvProveedores.CanUserDeleteRows = false;
+            }           
+        }
+
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtNombre.Text!="")
+            {
+                List<Proveedor> Lista = new List<Proveedor>();
+                try
+                {
+                    connection.Open();
+                    SqlCommand sqlComm = new SqlCommand("ProveedorLike", connection);
+                    sqlComm.CommandType = CommandType.StoredProcedure;
+                    sqlComm.Parameters.AddWithValue("@nombre", txtNombre.Text);
+                    SqlDataReader reader = sqlComm.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Proveedor prov = new Proveedor();
+                        prov.Numero = Convert.ToInt32(reader["numero"].ToString());
+                        prov.Nombre = reader["nombre"].ToString();
+                        prov.RFC = reader["rfc"].ToString();
+                        Lista.Add(prov);
+                    }
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show("Error " + er.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                finally
+                {
+                    connection.Close();
+                    dgvProveedores.ItemsSource = Lista;
+                }               
             }
         }
 
@@ -100,6 +117,14 @@ namespace Two_Way_Trasnfer
             BindingOperations.SetBinding(element, TagProperty, column.Binding);
 
             return element.Tag.ToString();
+        }
+
+        private void txtNombre_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                btnBuscar_Click(sender, e);
+            }
         }
     }
 }

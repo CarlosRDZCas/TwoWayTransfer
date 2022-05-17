@@ -14,7 +14,7 @@
             <ColumnDefinition Width="267*"/>
         </Grid.ColumnDefinitions>
         <DataGrid x:Name="dgvProveedores" Margin="10,131,10,10" Grid.ColumnSpan="3" MouseDoubleClick="dgvProveedores_MouseDoubleClick"/>
-        <TextBox x:Name="txtNombre" Height="23" Margin="66,48,11,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="txtNombre" Height="23" Margin="66,48,11,0" TextWrapping="Wrap" VerticalAlignment="Top" KeyDown="txtNombre_KeyDown"/>
         <Label Content="Nombre:" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnBuscar" Content="Buscar" Margin="10,48,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75" Click="btnBuscar_Click" Grid.Column="1"/>
         <Button x:Name="btnMostrar" Content="Listar todos" Margin="1,48,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75" Click="btnListar_Click" Grid.Column="2"/>

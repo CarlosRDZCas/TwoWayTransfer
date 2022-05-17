@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30804.86
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Two Way Trasnfer", "Two Way Trasnfer\Two Way Trasnfer.csproj", "{E6BAD334-BB87-451D-BCDE-9D3B5C12DBEA}"
 EndProject

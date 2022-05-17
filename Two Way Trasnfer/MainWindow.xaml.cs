@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,7 @@ namespace Two_Way_Trasnfer
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
@@ -46,9 +48,37 @@ namespace Two_Way_Trasnfer
             InitializeComponent();
         }
         public string Usuario { get; set; }
+
         public MainWindow(string usuario)
         {
             InitializeComponent();
+            /*FileSystemWatcher watcher = new FileSystemWatcher();
+            watcher.Path = "P:\\Apps\\TEST\\log";
+            watcher.NotifyFilter = NotifyFilters.Attributes
+                                 | NotifyFilters.CreationTime
+                                 | NotifyFilters.DirectoryName
+                                 | NotifyFilters.FileName
+                                 | NotifyFilters.LastAccess
+                                 | NotifyFilters.LastWrite
+                                 | NotifyFilters.Security
+                                 | NotifyFilters.Size;
+            watcher.Filter = "*.txt";
+            watcher.Changed += new FileSystemEventHandler(OnChanged);
+            watcher.EnableRaisingEvents = true;
+            
+
+
+            void OnChanged(object sender, FileSystemEventArgs e)
+            {
+
+                if (e.ChangeType == WatcherChangeTypes.Changed)
+                {
+                    string[] lines = System.IO.File.ReadAllLines("P:\\Apps\\TEST\\log\\LogCambios.txt");
+
+                    System.Windows.Forms.MessageBox.Show(lines[lines.Length-1]+".\nFavor de cerrar la aplicacion y volver a abrirla para su correcto funcionamiento.\n\nAl presionar OK se cerrara la aplicacion.", "Cambio en el sistema", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                }
+
+            }*/
             Usuario = usuario;
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 15);
@@ -63,10 +93,11 @@ namespace Two_Way_Trasnfer
             this.Background = myBrush;
             dispatcherTimer.Start();
         }
+
         private void Importes_Click(object sender, RoutedEventArgs e)
         {
             ImportesDiarios.Main importes = new ImportesDiarios.Main();
-            importes.ShowDialog();
+            importes.Show();
         }
 
         private void Salir_Click(object sender, RoutedEventArgs e)
@@ -77,7 +108,7 @@ namespace Two_Way_Trasnfer
         private void PrintPDF_Click(object sender, RoutedEventArgs e)
         {
             PrintPDF.MainWindow frmPrintPDF = new PrintPDF.MainWindow();
-            frmPrintPDF.ShowDialog();
+            frmPrintPDF.Show();
         }
 
         private void Intranet_Click(object sender, RoutedEventArgs e)
@@ -88,13 +119,73 @@ namespace Two_Way_Trasnfer
         private void ContraRecibos_Click(object sender, RoutedEventArgs e)
         {
             ContraRecibos cr = new ContraRecibos();
-                cr.ShowDialog();
+            cr.Show();
         }
 
         private void RemitentesDestinatarios_Click(object sender, RoutedEventArgs e)
         {
             RemitentesDestinatarios RD = new RemitentesDestinatarios();
-            RD.ShowDialog();
+            RD.Show();
+        }
+
+        private void Clientes_Click(object sender, RoutedEventArgs e)
+        {
+            Clientes cl = new Clientes(Usuario);
+            cl.Show();
+        }
+
+        private void CatalogoCuentas_Click(object sender, RoutedEventArgs e)
+        {
+            CatalogoCuentas cc = new CatalogoCuentas();
+            cc.Show();
+        }
+
+        private void Permisionarios_Click(object sender, RoutedEventArgs e)
+        {
+            Permisionarios perm = new Permisionarios();
+            perm.Show();
+        }
+
+        private void Unidades_Permisionarios_Click(object sender, RoutedEventArgs e)
+        {
+            UnidadesPermisionarios up = new UnidadesPermisionarios();
+            up.Show();
+        }
+
+        private void Celulares_Click(object sender, RoutedEventArgs e)
+        {
+            Celulares cel = new Celulares();
+            cel.Show();
+        }
+
+        private void XPO_Click(object sender, RoutedEventArgs e)
+        {
+            XPO xpo = new XPO(Usuario);
+            xpo.Show();
+        }
+
+        private void FacturasEmitidas_Click(object sender, RoutedEventArgs e)
+        {
+            FacturasEmitidas facturas = new FacturasEmitidas(Usuario);
+            facturas.Show();
+        }
+
+        private void CAPSIN_Click(object sender, RoutedEventArgs e)
+        {
+            CAPSIN cap = new CAPSIN();
+            cap.Show();
+        }
+
+        private void FormatoCostos_Click(object sender, RoutedEventArgs e)
+        {
+            FormatoCostos formato = new FormatoCostos();
+            formato.Show();
+        }
+
+        private void FacturasProveedores_Click(object sender, RoutedEventArgs e)
+        {
+            FacturasProveedores fp = new FacturasProveedores(Usuario);
+            fp.Show();
         }
     }
 }

@@ -6,12 +6,13 @@
         xmlns:local="clr-namespace:Two_Way_Trasnfer"
             xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         mc:Ignorable="d"
-        Title="Buscar" Height="197.588" Width="601.269" MinHeight="202.157" MinWidth="576.142">
+        Title="Buscar" Height="412.824" Width="1300.269" MinHeight="202.157" MinWidth="576.142">
     <Grid>
-        <Label Content="Buscar" Margin="281,10,243,0" VerticalAlignment="Top" FontSize="16" FontFamily="Arial" FontStretch="UltraExpanded" FontWeight="Bold"/>
-        <Label Content="Nombre:" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <TextBox x:Name="txtNombre" Height="29" Margin="80,70,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14"/>
-        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="275,115,0,0" VerticalAlignment="Top" Width="75" FontSize="14" Click="btnBuscar_Click"/>
+        <Label Content="Buscar" Margin="636,10,586,0" VerticalAlignment="Top" FontSize="16" FontFamily="Arial" FontStretch="UltraExpanded" FontWeight="Bold"/>
+        <Label Content="Nombre:" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="txtNombre" Height="33" Margin="80,66,106,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" KeyDown="txtNombre_KeyDown_1"/>
+        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="1207,68,0,0" VerticalAlignment="Top" Width="75" FontSize="14" Click="btnBuscar_Click" RenderTransformOrigin="8.973,-0.182"/>
+        <DataGrid x:Name="dgvRD" Margin="10,115,10,16" MouseDoubleClick="dgvRD_MouseDoubleClick" IsReadOnly="True"/>
 
     </Grid>
 </Controls:MetroWindow>

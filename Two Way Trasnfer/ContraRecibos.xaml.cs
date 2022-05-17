@@ -40,7 +40,7 @@ namespace Two_Way_Trasnfer
         public ContraRecibos()
         {
             InitializeComponent();
-           
+            txtContra.Focus();
             dtmFecha.SelectedDate = DateTime.Now;
             dgvFacturas.CanUserAddRows = false;
             dgvFacturas.CanUserDeleteRows = false;
@@ -131,11 +131,21 @@ namespace Two_Way_Trasnfer
             Facturas = new List<Comprobante>();
             List<Comprobante> Lista = new List<Comprobante>();
             foreach (var arch in list)
-            {              
+            {
                 Comprobante Factura = new Comprobante();
-                XmlSerializer serializer = new XmlSerializer(typeof(Comprobante));
+                Clases.CartaPorte.Comprobante Factura2 = new Clases.CartaPorte.Comprobante();
                 StreamReader reader = new StreamReader(arch.Nombre);
+                try
+                {
+                XmlSerializer serializer = new XmlSerializer(typeof(Comprobante));
                 Factura = (Comprobante)serializer.Deserialize(reader);
+                }
+                catch (Exception)
+                {
+                   
+                    XmlSerializer serializer = new XmlSerializer(typeof(Clases.CartaPorte.Comprobante));
+                    Factura2 = (Clases.CartaPorte.Comprobante)serializer.Deserialize(reader);
+                }                 
                 Factura.UUID = System.IO.Path.GetFileName(arch.Nombre);
                 foreach (Concepto1 concepto in Factura.Concepto.concepto1)
                 {
@@ -230,7 +240,7 @@ namespace Two_Way_Trasnfer
         {
             if (dgvFacturas.Items.Count <= 0)
             {
-                MessageBox.Show("No hay facturas para procesar ");
+                MessageBox.Show("No hay facturas para procesar","Sin facturas",MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             else {
                 List<Comprobante> Lista = new List<Comprobante>();
@@ -273,7 +283,7 @@ namespace Two_Way_Trasnfer
                         cmd1.ExecuteNonQuery();
                     }
                     connection.Close();
-                    MessageBox.Show("Contra Recibo Procesado");
+                    MessageBox.Show("Contra Recibo Procesado","Completado",MessageBoxButton.OK,MessageBoxImage.Information);
                     txtTotal.Text = "";
                     txtTotFact.Text = "";
                     List<Comprobante> ListaClear = new List<Comprobante>();
@@ -291,7 +301,7 @@ namespace Two_Way_Trasnfer
                 }
                 else
                 {
-                    MessageBox.Show("No se selecciono ninguna factura");
+                    MessageBox.Show("No se selecciono ninguna factura", "Seleccione", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
            
@@ -411,7 +421,7 @@ namespace Two_Way_Trasnfer
             }
             catch (Exception ex)
             {
-               
+               MessageBox.Show("Error "+ex.Message,"Error", MessageBoxButton.OK,MessageBoxImage.Error);
             }
        
         }

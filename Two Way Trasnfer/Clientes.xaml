@@ -1,0 +1,49 @@
+﻿<Controls:MetroWindow x:Class="Two_Way_Trasnfer.Clientes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Two_Way_Trasnfer"
+           xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        mc:Ignorable="d"
+        Title="Tarifas" Height="754" Width="990" MinHeight="742" MinWidth="987" x:Name="clientes" WindowState="Maximized">
+    <Grid>
+        <Grid.Resources>
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent" />
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="118*"/>
+            <RowDefinition Height="119*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="96*"/>
+            <ColumnDefinition Width="68*"/>
+            <ColumnDefinition Width="703*"/>
+            <ColumnDefinition Width="112*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Cliente:" Margin="22,25,10,0" VerticalAlignment="Top" FontSize="16" Height="31"/>
+        <TextBox x:Name="txtNumCliente" Height="30" Margin="86,25,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsTabStop="False" FontSize="16" LostFocus="txtNumCliente_LostFocus" GotFocus="txtNumCliente_GotFocus" Grid.ColumnSpan="2"/>
+        <DataGrid x:Name="dgvTarifas"  VirtualizingStackPanel.IsVirtualizing="true" EnableRowVirtualization="true" VirtualizingStackPanel.VirtualizationMode="Standard" VirtualizingPanel.IsVirtualizingWhenGrouping="True" AutoGenerateColumns="true" Margin="10,81,60,10" AutoGeneratingColumn="dgvTarifas_AutoGeneratingColumn"   Grid.ColumnSpan="4" MouseDoubleClick="dgvTarifas_MouseDoubleClick" SelectionChanged="dgvTarifas_SelectionChanged" FontSize="13" CellEditEnding="dgvTarifas_CellEditEnding" PreviewKeyDown="dgvTarifas_PreviewKeyDown" BeginningEdit="dgvTarifas_BeginningEdit" AddingNewItem="dgvTarifas_AddingNewItem" ItemsSource="{Binding Source=Ltarifas}" ColumnWidth="Auto" RowEditEnding="dgvTarifas_RowEditEnding" EnableColumnVirtualization="True"/>
+        <ComboBox x:Name="cbCliente" Margin="2,24,10,0" VerticalAlignment="Top" SelectionChanged="cbCliente_SelectionChanged" Grid.Column="2" Height="34" FontSize="16"/>
+
+        <Button x:Name="btnGuardar" Margin="0,81,7,0" Click="btnGuardar_Click" RenderTransformOrigin="0.533,0.889" Grid.Column="3" HorizontalAlignment="Right" Width="48" Height="46" VerticalAlignment="Top">
+            <StackPanel>
+                <Image Source="Resources/save.png" Stretch="UniformToFill" />
+            </StackPanel>
+        </Button>
+        <Button x:Name="btnSalir" Content="Salir" Grid.Column="3" Margin="0,28,11,0" VerticalAlignment="Top" Click="btnSalir_Click" Height="27" HorizontalAlignment="Right" Width="75"/>
+        <DataGrid x:Name="dgvRutasHijos" ColumnWidth="Auto" Grid.ColumnSpan="4" Margin="10,26,60,10" Grid.Row="1" FontSize="13" AutoGeneratingColumn="dgvRutasHijos_AutoGeneratingColumn" AddingNewItem="dgvRutasHijos_AddingNewItem" BeginningEdit="dgvRutasHijos_BeginningEdit" EnableRowVirtualization="False"/>
+        <Button x:Name="btnGuardarHijo" Margin="0,26,7,0" Click="btnGuardarHijo_Click" RenderTransformOrigin="0.533,0.889" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Right" Width="48" Height="46" VerticalAlignment="Top">
+            <StackPanel>
+                <Image Source="Resources/save.png" Stretch="UniformToFill" />
+            </StackPanel>
+        </Button>
+        <Button x:Name="btnExportar" ToolTip="Exportar a Excel" Margin="0,157,7,0" RenderTransformOrigin="0.5,0.5" Grid.Column="3" HorizontalAlignment="Right" Width="48" Height="46" VerticalAlignment="Top" Click="btnExportar_Click">
+            <StackPanel>
+                <Image Source="Resources/CelularesRes/exportExcel.jpg" Stretch="UniformToFill" />
+            </StackPanel>
+        </Button>
+
+    </Grid>
+</Controls:MetroWindow>

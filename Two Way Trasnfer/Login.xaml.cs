@@ -26,11 +26,10 @@ namespace Two_Way_Trasnfer
 
         public Login()
         {
-            InitializeComponent();
-            connection.Open();
-            connection.Close();
+            InitializeComponent();        
             txtUsuario.Focus();
         }
+
         private void TxtPass_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -41,44 +40,46 @@ namespace Two_Way_Trasnfer
 
         private void btnEntrar_Click(object sender, RoutedEventArgs e)
         {
-            connection.Open();
-            SqlCommand cmd = new SqlCommand("Login", connection);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Usuario", txtUsuario.Text);
-            cmd.Parameters.AddWithValue("@Pass", txtPass.Password);
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.HasRows)
+            try
             {
-
-                if (reader.Read())
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("Login", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Usuario", txtUsuario.Text);
+                cmd.Parameters.AddWithValue("@Pass", txtPass.Password);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
                 {
-                    if (reader["ID"].ToString() == "1")
+                    if (reader.Read())
                     {
-
-                        MainWindow main = new MainWindow(txtUsuario.Text);
-                        this.Hide();
-                        main.ShowDialog();
-                        this.Show();
-                        txtUsuario.Text = "";
-                        txtPass.Password = "";
-                        connection.Close();
-
-
+                        if (reader["ID"].ToString() == "1")
+                        {
+                            MainWindow main = new MainWindow(txtUsuario.Text);
+                            this.Hide();
+                            main.ShowDialog();
+                            this.Show();
+                            txtUsuario.Text = "";
+                            txtPass.Password = "";
+                        }
+                        else
+                        {
+                            MessageBox.Show("Usuario y o contraseña incorrectos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Usuario y o contraseña incorrectos");
-                        connection.Close();
-                    }
-
+                }
+                else
+                {
+                    MessageBox.Show("Usuario y o contraseña incorrectos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            else
+            catch (Exception er)
             {
-                MessageBox.Show("Usuario y o contraseña incorrectos");
+                MessageBox.Show("Error " + er.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
                 connection.Close();
             }
-
         }
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)
