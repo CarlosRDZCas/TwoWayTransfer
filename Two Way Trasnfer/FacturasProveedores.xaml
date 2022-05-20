@@ -19,7 +19,13 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Label x:Name="lblTitle" Content="Facturas Proveedores" VerticalAlignment="Top" FontFamily="Arial" FontSize="28" FontWeight="Bold" HorizontalAlignment="Right" Width="304" Height="39" FontStretch="Expanded" FontStyle="Oblique" VerticalContentAlignment="Center" UseLayoutRounding="False" Background="#FF33A133"/>
+
+
+        <Label x:Name="lblTitle" Content="Facturas Proveedores" VerticalAlignment="Top" FontFamily="Arial" FontSize="28" FontWeight="Bold" HorizontalAlignment="Right" Width="304" Height="39" FontStretch="Expanded" FontStyle="Oblique" VerticalContentAlignment="Center" UseLayoutRounding="False" Background="#FF33A133"></Label>
+
 
     </Grid>
+   
 </Controls:MetroWindow>
+
+    

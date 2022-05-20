@@ -59,11 +59,10 @@ namespace Two_Way_Trasnfer
             AcutalizarDG();
         }
 
-
         private void dgProveedoresFacturas_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             if (e.PropertyName == "LogID" || e.PropertyName == "Proveedor" || e.PropertyName == "RFC" || e.PropertyName == "Factura" || e.PropertyName == "Importe" || e.PropertyName == "Fecha" ||
-                e.PropertyName == "Ruta" || e.PropertyName == "Usuario" || e.PropertyName == "PDF" || e.PropertyName == "XML" || e.PropertyName == "Soporte")
+                e.PropertyName == "Ruta" || e.PropertyName == "Usuario" || e.PropertyName == "PDF" || e.PropertyName == "XML" || e.PropertyName == "Soporte"|| e.PropertyName=="FechaPDF" || e.PropertyName == "FechaXML" || e.PropertyName == "FechaSoporte")
             {
                 e.Column.IsReadOnly = true;
             }
@@ -95,6 +94,22 @@ namespace Two_Way_Trasnfer
             {
                 e.Cancel = true;
             }
+            if (e.PropertyName == "Importe")
+            {
+                ((DataGridTextColumn)e.Column).Binding.StringFormat = "$0.00";
+            }
+            if (e.PropertyName == "FechaPDF")
+            {
+                e.Column.Header = "Fecha PDF";
+            }
+            if (e.PropertyName == "FechaXML")
+            {
+                e.Column.Header = "Fecha XML";
+            }
+            if (e.PropertyName == "FechaSoporte")
+            {
+                e.Column.Header = "Fecha Soporte";
+            }
         }
 
         private void bntProcesar_Click(object sender, RoutedEventArgs e)
@@ -104,6 +119,7 @@ namespace Two_Way_Trasnfer
             List<ProveedorSQL> proveedors = list.FindAll(r => r.Procesar == true);
             string success = "Facturas procesadas con exito:\n\n";
             string error = "";
+
             if (proveedors.Count > 0)
             {
                 int consecutivoMarissa = 0;
@@ -240,6 +256,7 @@ namespace Two_Way_Trasnfer
                                 string Factura = proveedorSql.XML.Substring(0, index);
                                 int index2 = proveedorSql.XML.IndexOf('-');
                                 string Lugar = proveedorSql.XML.Substring(index, index2 - index).Trim();
+                                proveedor.SubtotalXML = comp.SubTotal;
                                 proveedor.Moneda = comp.Moneda;
                                 proveedor.TipoCambio = comp.TipoCambio;
                                 proveedor.Debe = comp.Total;
@@ -294,6 +311,7 @@ namespace Two_Way_Trasnfer
                                 string Factura = proveedorSql.XML.Substring(0, index);
                                 int index2 = proveedorSql.XML.IndexOf('-');
                                 string Lugar = proveedorSql.XML.Substring(index, index2 - index).Trim();
+                                proveedor.SubtotalXML = comp.SubTotal;
                                 proveedor.Moneda = comp.Moneda;
                                 proveedor.TipoCambio = comp.TipoCambio;
                                 proveedor.Debe = proveedor.Moneda == "USD" ? comp.Total * 20 : comp.Total;
@@ -527,6 +545,7 @@ namespace Two_Way_Trasnfer
                         cmd.Parameters.AddWithValue("@XML", xml);
                         cmd.Parameters.AddWithValue("@rfcreceptor", proveedor.Rfcreceptor);
                         cmd.Parameters.AddWithValue("@monedaxml", proveedor.Moneda);
+                        cmd.Parameters.AddWithValue("@SubtotalXML", proveedor.SubtotalXML);
                         cmd.Parameters.AddWithValue("@UsuarioProcesado", Usuario);
                         cmd.ExecuteNonQuery();
                     }
@@ -591,6 +610,7 @@ namespace Two_Way_Trasnfer
                         cmd.Parameters.AddWithValue("@XML", xml);
                         cmd.Parameters.AddWithValue("@rfcreceptor", proveedor.Rfcreceptor);
                         cmd.Parameters.AddWithValue("@monedaxml", proveedor.Moneda);
+                        cmd.Parameters.AddWithValue("@SubtotalXML", proveedor.SubtotalXML);
                         cmd.Parameters.AddWithValue("@UsuarioProcesado", Usuario);
                         cmd.ExecuteNonQuery();
                     }

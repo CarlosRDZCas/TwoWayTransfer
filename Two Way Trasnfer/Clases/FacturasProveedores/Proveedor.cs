@@ -22,6 +22,7 @@ namespace Two_Way_Trasnfer.Clases.FacturasProveedores
         public string Concepto { get; set; }
         public DateTime Vence { get; set; }
         public string Nombre { get; set; }
+        public double SubtotalXML { get; set; }
         public string Tipo { get; set; }
         public string UUID { get; set; }
         public double ValorUnitario { get; set; }
