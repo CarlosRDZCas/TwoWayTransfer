@@ -49,7 +49,7 @@ namespace Two_Way_Trasnfer
                 SqlDataReader lector2 = cmd1.ExecuteReader();
                 while (lector2.Read())
                 {
-                    cbPais.Items.Add(lector2["c_Pais"].ToString());
+                    cbPais.Items.Add(lector2["c_Pais"].ToString().Trim());
                 }
             }
             catch (Exception er)
@@ -68,25 +68,25 @@ namespace Two_Way_Trasnfer
                 SqlDataReader lector = cmd.ExecuteReader();
                 while (lector.Read())
                 {
-                    txtID.Text = lector["ID"].ToString();
-                    txtNombre.Text = lector["Nombre"].ToString();
-                    txtResFiscal.Text = lector["ResidenciaFiscal"].ToString();
-                    txtRFC.Text = lector["RFC"].ToString();
-                    txtNumRegIdTrip.Text = lector["NumRegIdTrip"].ToString();
-                    txtCalle.Text = lector["Calle"].ToString();
-                    txtNumExt.Text = lector["NumeroExterior"].ToString();
-                    txtNumInt.Text = lector["NumeroInterior"].ToString();
-                    cbColonia.Items.Add(lector["Colonia"].ToString());
-                    cbColonia.SelectedItem = lector["Colonia"].ToString();
-                    txtLocalidad.Text = lector["Localidad"].ToString();
-                    txtReferencia.Text = lector["Referencia"].ToString();
-                    txtMunicipio.Text = lector["Municipio"].ToString();
-                    cbPais.SelectedItem = lector["Pais"].ToString();
+                    txtID.Text = lector["ID"].ToString().Trim();
+                    txtNombre.Text = lector["Nombre"].ToString().Trim();
+                    txtResFiscal.Text = lector["ResidenciaFiscal"].ToString().Trim();
+                    txtRFC.Text = lector["RFC"].ToString().Trim();
+                    txtNumRegIdTrip.Text = lector["NumRegIdTrip"].ToString().Trim();
+                    txtCalle.Text = lector["Calle"].ToString().Trim();
+                    txtNumExt.Text = lector["NumeroExterior"].ToString().Trim();
+                    txtNumInt.Text = lector["NumeroInterior"].ToString().Trim();
+                    cbColonia.Items.Add(lector["Colonia"].ToString().Trim());
+                    cbColonia.SelectedItem = lector["Colonia"].ToString().Trim();
+                    txtLocalidad.Text = lector["Localidad"].ToString().Trim();
+                    txtReferencia.Text = lector["Referencia"].ToString().Trim();
+                    txtMunicipio.Text = lector["Municipio"].ToString().Trim();
+                    cbPais.SelectedItem = lector["Pais"].ToString().Trim();
                     cbEstado.SelectedValue = lector["Estado"].ToString().Trim();
-                    txtCodigoPostal.Text = lector["CodigoPostal"].ToString();
-                    txtNumMunicipio.Text = lector["NumMunicipio"].ToString();
-                    txtNumLocalidad.Text = lector["NumLocalidad"].ToString();
-                    txtNumColonia.Text = lector["NumColonia"].ToString();
+                    txtCodigoPostal.Text = lector["CodigoPostal"].ToString().Trim();
+                    txtNumMunicipio.Text = lector["NumMunicipio"].ToString().Trim();
+                    txtNumLocalidad.Text = lector["NumLocalidad"].ToString().Trim();
+                    txtNumColonia.Text = lector["NumColonia"].ToString().Trim();
 
                 }
             }
@@ -188,25 +188,25 @@ namespace Two_Way_Trasnfer
                 cbColonia.Items.Clear();
                 while (lector.Read())
                 {
-                    txtID.Text = lector["ID"].ToString();
-                    txtNombre.Text = lector["Nombre"].ToString();
-                    txtResFiscal.Text = lector["ResidenciaFiscal"].ToString();
-                    txtRFC.Text = lector["RFC"].ToString();
-                    txtNumRegIdTrip.Text = lector["NumRegIdTrip"].ToString();
-                    txtCalle.Text = lector["Calle"].ToString();
-                    txtNumExt.Text = lector["NumeroExterior"].ToString();
-                    txtNumInt.Text = lector["NumeroInterior"].ToString();
-                    cbColonia.Items.Add(lector["Colonia"].ToString());
-                    cbColonia.SelectedItem = lector["Colonia"].ToString();
-                    txtLocalidad.Text = lector["Localidad"].ToString();
-                    txtReferencia.Text = lector["Referencia"].ToString();
-                    txtMunicipio.Text = lector["Municipio"].ToString();
-                    cbPais.SelectedItem = lector["Pais"].ToString();
-                    cbEstado.SelectedItem = lector["Estado"].ToString().Trim();
-                    txtCodigoPostal.Text = lector["CodigoPostal"].ToString();
-                    txtNumMunicipio.Text = lector["NumMunicipio"].ToString();
-                    txtNumLocalidad.Text = lector["NumLocalidad"].ToString();
-                    txtNumColonia.Text = lector["NumColonia"].ToString();
+                    txtID.Text = lector["ID"].ToString().Trim();
+                    txtNombre.Text = lector["Nombre"].ToString().Trim();
+                    txtResFiscal.Text = lector["ResidenciaFiscal"].ToString().Trim();
+                    txtRFC.Text = lector["RFC"].ToString().Trim();
+                    txtNumRegIdTrip.Text = lector["NumRegIdTrip"].ToString().Trim();
+                    txtCalle.Text = lector["Calle"].ToString().Trim();
+                    txtNumExt.Text = lector["NumeroExterior"].ToString().Trim();
+                    txtNumInt.Text = lector["NumeroInterior"].ToString().Trim();
+                    cbColonia.Items.Add(lector["Colonia"].ToString().Trim());
+                    cbColonia.SelectedItem = lector["Colonia"].ToString().Trim();
+                    txtLocalidad.Text = lector["Localidad"].ToString().Trim();
+                    txtReferencia.Text = lector["Referencia"].ToString().Trim();
+                    txtMunicipio.Text = lector["Municipio"].ToString().Trim();
+                    cbPais.SelectedItem = lector["Pais"].ToString().Trim();
+                    cbEstado.SelectedValue = lector["Estado"].ToString().Trim();
+                    txtCodigoPostal.Text = lector["CodigoPostal"].ToString().Trim();
+                    txtNumMunicipio.Text = lector["NumMunicipio"].ToString().Trim();
+                    txtNumLocalidad.Text = lector["NumLocalidad"].ToString().Trim();
+                    txtNumColonia.Text = lector["NumColonia"].ToString().Trim();
                 }
             }
             catch (Exception er)
@@ -251,25 +251,25 @@ namespace Two_Way_Trasnfer
                     cbColonia.Items.Clear();
                     while (lector.Read())
                     {
-                        txtID.Text = lector["ID"].ToString();
-                        txtNombre.Text = lector["Nombre"].ToString();
-                        txtRFC.Text = lector["RFC"].ToString();
-                        txtResFiscal.Text = lector["ResidenciaFiscal"].ToString();
-                        txtNumRegIdTrip.Text = lector["NumRegIdTrip"].ToString();
-                        txtCalle.Text = lector["Calle"].ToString();
-                        txtNumExt.Text = lector["NumeroExterior"].ToString();
-                        txtNumInt.Text = lector["NumeroInterior"].ToString();
-                        cbColonia.Items.Add(lector["Colonia"].ToString());
-                        cbColonia.SelectedItem = lector["Colonia"].ToString();
-                        txtLocalidad.Text = lector["Localidad"].ToString();
-                        txtReferencia.Text = lector["Referencia"].ToString();
-                        txtMunicipio.Text = lector["Municipio"].ToString();
-                        cbPais.SelectedItem = lector["Pais"].ToString();
-                        cbEstado.SelectedItem = lector["Estado"].ToString().Trim();
-                        txtCodigoPostal.Text = lector["CodigoPostal"].ToString();
-                        txtNumMunicipio.Text = lector["NumMunicipio"].ToString();
-                        txtNumLocalidad.Text = lector["NumLocalidad"].ToString();
-                        txtNumColonia.Text = lector["NumColonia"].ToString();
+                        txtID.Text = lector["ID"].ToString().Trim();
+                        txtNombre.Text = lector["Nombre"].ToString().Trim();
+                        txtResFiscal.Text = lector["ResidenciaFiscal"].ToString().Trim();
+                        txtRFC.Text = lector["RFC"].ToString().Trim();
+                        txtNumRegIdTrip.Text = lector["NumRegIdTrip"].ToString().Trim();
+                        txtCalle.Text = lector["Calle"].ToString().Trim();
+                        txtNumExt.Text = lector["NumeroExterior"].ToString().Trim();
+                        txtNumInt.Text = lector["NumeroInterior"].ToString().Trim();
+                        cbColonia.Items.Add(lector["Colonia"].ToString().Trim());
+                        cbColonia.SelectedItem = lector["Colonia"].ToString().Trim();
+                        txtLocalidad.Text = lector["Localidad"].ToString().Trim();
+                        txtReferencia.Text = lector["Referencia"].ToString().Trim();
+                        txtMunicipio.Text = lector["Municipio"].ToString().Trim();
+                        cbPais.SelectedItem = lector["Pais"].ToString().Trim();
+                        cbEstado.SelectedValue = lector["Estado"].ToString().Trim();
+                        txtCodigoPostal.Text = lector["CodigoPostal"].ToString().Trim();
+                        txtNumMunicipio.Text = lector["NumMunicipio"].ToString().Trim();
+                        txtNumLocalidad.Text = lector["NumLocalidad"].ToString().Trim();
+                        txtNumColonia.Text = lector["NumColonia"].ToString().Trim();
                     }
                 }             
             }
@@ -314,25 +314,25 @@ namespace Two_Way_Trasnfer
                     cbColonia.Items.Clear();
                     while (lector.Read())
                     {
-                        txtID.Text = lector["ID"].ToString();
-                        txtNombre.Text = lector["Nombre"].ToString();
-                        txtRFC.Text = lector["RFC"].ToString();
-                        txtResFiscal.Text = lector["ResidenciaFiscal"].ToString();
-                        txtNumRegIdTrip.Text = lector["NumRegIdTrip"].ToString();
-                        txtCalle.Text = lector["Calle"].ToString();
-                        txtNumExt.Text = lector["NumeroExterior"].ToString();
-                        txtNumInt.Text = lector["NumeroInterior"].ToString();
-                        cbColonia.Items.Add(lector["Colonia"].ToString());
-                        cbColonia.SelectedItem = lector["Colonia"].ToString();
-                        txtLocalidad.Text = lector["Localidad"].ToString();
-                        txtReferencia.Text = lector["Referencia"].ToString();
-                        txtMunicipio.Text = lector["Municipio"].ToString();
-                        cbPais.SelectedItem = lector["Pais"].ToString();
-                        cbEstado.SelectedItem = lector["Estado"].ToString().Trim();
-                        txtCodigoPostal.Text = lector["CodigoPostal"].ToString();
-                        txtNumMunicipio.Text = lector["NumMunicipio"].ToString();
-                        txtNumLocalidad.Text = lector["NumLocalidad"].ToString();
-                        txtNumColonia.Text = lector["NumColonia"].ToString();
+                        txtID.Text = lector["ID"].ToString().Trim();
+                        txtNombre.Text = lector["Nombre"].ToString().Trim();
+                        txtResFiscal.Text = lector["ResidenciaFiscal"].ToString().Trim();
+                        txtRFC.Text = lector["RFC"].ToString().Trim();
+                        txtNumRegIdTrip.Text = lector["NumRegIdTrip"].ToString().Trim();
+                        txtCalle.Text = lector["Calle"].ToString().Trim();
+                        txtNumExt.Text = lector["NumeroExterior"].ToString().Trim();
+                        txtNumInt.Text = lector["NumeroInterior"].ToString().Trim();
+                        cbColonia.Items.Add(lector["Colonia"].ToString().Trim());
+                        cbColonia.SelectedItem = lector["Colonia"].ToString().Trim();
+                        txtLocalidad.Text = lector["Localidad"].ToString().Trim();
+                        txtReferencia.Text = lector["Referencia"].ToString().Trim();
+                        txtMunicipio.Text = lector["Municipio"].ToString().Trim();
+                        cbPais.SelectedItem = lector["Pais"].ToString().Trim();
+                        cbEstado.SelectedValue = lector["Estado"].ToString().Trim();
+                        txtCodigoPostal.Text = lector["CodigoPostal"].ToString().Trim();
+                        txtNumMunicipio.Text = lector["NumMunicipio"].ToString().Trim();
+                        txtNumLocalidad.Text = lector["NumLocalidad"].ToString().Trim();
+                        txtNumColonia.Text = lector["NumColonia"].ToString().Trim();
                     }
                 }               
             }
@@ -357,25 +357,25 @@ namespace Two_Way_Trasnfer
                 cbColonia.Items.Clear();
                 while (lector.Read())
                 {
-                    txtID.Text = lector["ID"].ToString();
-                    txtNombre.Text = lector["Nombre"].ToString();
-                    txtRFC.Text = lector["RFC"].ToString();
-                    txtResFiscal.Text = lector["ResidenciaFiscal"].ToString();
-                    txtNumRegIdTrip.Text = lector["NumRegIdTrip"].ToString();
-                    txtCalle.Text = lector["Calle"].ToString();
-                    txtNumExt.Text = lector["NumeroExterior"].ToString();
-                    txtNumInt.Text = lector["NumeroInterior"].ToString();
-                    cbColonia.Items.Add(lector["Colonia"].ToString());
-                    cbColonia.SelectedItem = lector["Colonia"].ToString();
-                    txtLocalidad.Text = lector["Localidad"].ToString();
-                    txtReferencia.Text = lector["Referencia"].ToString();
-                    txtMunicipio.Text = lector["Municipio"].ToString();
-                    cbPais.SelectedItem = lector["Pais"].ToString();
-                    cbEstado.SelectedItem = lector["Estado"].ToString().Trim();
-                    txtCodigoPostal.Text = lector["CodigoPostal"].ToString();
-                    txtNumMunicipio.Text = lector["NumMunicipio"].ToString();
-                    txtNumLocalidad.Text = lector["NumLocalidad"].ToString();
-                    txtNumColonia.Text = lector["NumColonia"].ToString();
+                    txtID.Text = lector["ID"].ToString().Trim();
+                    txtNombre.Text = lector["Nombre"].ToString().Trim();
+                    txtResFiscal.Text = lector["ResidenciaFiscal"].ToString().Trim();
+                    txtRFC.Text = lector["RFC"].ToString().Trim();
+                    txtNumRegIdTrip.Text = lector["NumRegIdTrip"].ToString().Trim();
+                    txtCalle.Text = lector["Calle"].ToString().Trim();
+                    txtNumExt.Text = lector["NumeroExterior"].ToString().Trim();
+                    txtNumInt.Text = lector["NumeroInterior"].ToString().Trim();
+                    cbColonia.Items.Add(lector["Colonia"].ToString().Trim());
+                    cbColonia.SelectedItem = lector["Colonia"].ToString().Trim();
+                    txtLocalidad.Text = lector["Localidad"].ToString().Trim();
+                    txtReferencia.Text = lector["Referencia"].ToString().Trim();
+                    txtMunicipio.Text = lector["Municipio"].ToString().Trim();
+                    cbPais.SelectedItem = lector["Pais"].ToString().Trim();
+                    cbEstado.SelectedValue = lector["Estado"].ToString().Trim();
+                    txtCodigoPostal.Text = lector["CodigoPostal"].ToString().Trim();
+                    txtNumMunicipio.Text = lector["NumMunicipio"].ToString().Trim();
+                    txtNumLocalidad.Text = lector["NumLocalidad"].ToString().Trim();
+                    txtNumColonia.Text = lector["NumColonia"].ToString().Trim();
                 }
             }
             catch (Exception er)
@@ -506,25 +506,25 @@ namespace Two_Way_Trasnfer
                         SqlDataReader lector = cmd2.ExecuteReader();
                         while (lector.Read())
                         {
-                            txtID.Text = lector["ID"].ToString();
-                            txtNombre.Text = lector["Nombre"].ToString();
-                            txtRFC.Text = lector["RFC"].ToString();
-                            txtResFiscal.Text = lector["ResidenciaFiscal"].ToString();
-                            txtNumRegIdTrip.Text = lector["NumRegIdTrip"].ToString();
-                            txtCalle.Text = lector["Calle"].ToString();
-                            txtNumExt.Text = lector["NumeroExterior"].ToString();
-                            txtNumInt.Text = lector["NumeroInterior"].ToString();
-                            cbColonia.Items.Add(lector["Colonia"].ToString());
-                            cbColonia.SelectedItem = lector["Colonia"].ToString();
-                            txtLocalidad.Text = lector["Localidad"].ToString();
-                            txtReferencia.Text = lector["Referencia"].ToString();
-                            txtMunicipio.Text = lector["Municipio"].ToString();
-                            cbPais.SelectedItem = lector["Pais"].ToString();
-                            cbEstado.SelectedItem = lector["Estado"].ToString().Trim();
-                            txtCodigoPostal.Text = lector["CodigoPostal"].ToString();
-                            txtNumMunicipio.Text = lector["NumMunicipio"].ToString();
-                            txtNumLocalidad.Text = lector["NumLocalidad"].ToString();
-                            txtNumColonia.Text = lector["NumColonia"].ToString();
+                            txtID.Text = lector["ID"].ToString().Trim();
+                            txtNombre.Text = lector["Nombre"].ToString().Trim();
+                            txtResFiscal.Text = lector["ResidenciaFiscal"].ToString().Trim();
+                            txtRFC.Text = lector["RFC"].ToString().Trim();
+                            txtNumRegIdTrip.Text = lector["NumRegIdTrip"].ToString().Trim();
+                            txtCalle.Text = lector["Calle"].ToString().Trim();
+                            txtNumExt.Text = lector["NumeroExterior"].ToString().Trim();
+                            txtNumInt.Text = lector["NumeroInterior"].ToString().Trim();
+                            cbColonia.Items.Add(lector["Colonia"].ToString().Trim());
+                            cbColonia.SelectedItem = lector["Colonia"].ToString().Trim();
+                            txtLocalidad.Text = lector["Localidad"].ToString().Trim();
+                            txtReferencia.Text = lector["Referencia"].ToString().Trim();
+                            txtMunicipio.Text = lector["Municipio"].ToString().Trim();
+                            cbPais.SelectedItem = lector["Pais"].ToString().Trim();
+                            cbEstado.SelectedValue = lector["Estado"].ToString().Trim();
+                            txtCodigoPostal.Text = lector["CodigoPostal"].ToString().Trim();
+                            txtNumMunicipio.Text = lector["NumMunicipio"].ToString().Trim();
+                            txtNumLocalidad.Text = lector["NumLocalidad"].ToString().Trim();
+                            txtNumColonia.Text = lector["NumColonia"].ToString().Trim();
                         }                      
                     }
                     catch (Exception ex)
@@ -573,25 +573,25 @@ namespace Two_Way_Trasnfer
                 LimpiarControles();
                 while (lector.Read())
                 {
-                    txtID.Text = lector["ID"].ToString();
-                    txtNombre.Text = lector["Nombre"].ToString();
-                    txtRFC.Text = lector["RFC"].ToString();
-                    txtResFiscal.Text = lector["ResidenciaFiscal"].ToString();
-                    txtNumRegIdTrip.Text = lector["NumRegIdTrip"].ToString();
-                    txtCalle.Text = lector["Calle"].ToString();
-                    txtNumExt.Text = lector["NumeroExterior"].ToString();
-                    txtNumInt.Text = lector["NumeroInterior"].ToString();
-                    cbColonia.Items.Add(lector["Colonia"].ToString());
-                    cbColonia.SelectedItem = lector["Colonia"].ToString();
-                    txtLocalidad.Text = lector["Localidad"].ToString();
-                    txtReferencia.Text = lector["Referencia"].ToString();
-                    txtMunicipio.Text = lector["Municipio"].ToString();
-                    cbPais.SelectedItem = lector["Pais"].ToString();
-                    cbEstado.SelectedItem = lector["Estado"].ToString().Trim();
-                    txtCodigoPostal.Text = lector["CodigoPostal"].ToString();
-                    txtNumMunicipio.Text = lector["NumMunicipio"].ToString();
-                    txtNumLocalidad.Text = lector["NumLocalidad"].ToString();
-                    txtNumColonia.Text = lector["NumColonia"].ToString();
+                    txtID.Text = lector["ID"].ToString().Trim();
+                    txtNombre.Text = lector["Nombre"].ToString().Trim();
+                    txtResFiscal.Text = lector["ResidenciaFiscal"].ToString().Trim();
+                    txtRFC.Text = lector["RFC"].ToString().Trim();
+                    txtNumRegIdTrip.Text = lector["NumRegIdTrip"].ToString().Trim();
+                    txtCalle.Text = lector["Calle"].ToString().Trim();
+                    txtNumExt.Text = lector["NumeroExterior"].ToString().Trim();
+                    txtNumInt.Text = lector["NumeroInterior"].ToString().Trim();
+                    cbColonia.Items.Add(lector["Colonia"].ToString().Trim());
+                    cbColonia.SelectedItem = lector["Colonia"].ToString().Trim();
+                    txtLocalidad.Text = lector["Localidad"].ToString().Trim();
+                    txtReferencia.Text = lector["Referencia"].ToString().Trim();
+                    txtMunicipio.Text = lector["Municipio"].ToString().Trim();
+                    cbPais.SelectedItem = lector["Pais"].ToString().Trim();
+                    cbEstado.SelectedValue = lector["Estado"].ToString().Trim();
+                    txtCodigoPostal.Text = lector["CodigoPostal"].ToString().Trim();
+                    txtNumMunicipio.Text = lector["NumMunicipio"].ToString().Trim();
+                    txtNumLocalidad.Text = lector["NumLocalidad"].ToString().Trim();
+                    txtNumColonia.Text = lector["NumColonia"].ToString().Trim();
                 }
             }
             catch (Exception er)
@@ -617,25 +617,25 @@ namespace Two_Way_Trasnfer
             else
             {
                 cbColonia.Items.Clear();
-                txtID.Text = rd.ID.ToString();
-                txtNombre.Text = rd.Nombre;
-                txtResFiscal.Text = rd.ResidenciaFiscal;
-                txtNumRegIdTrip.Text = rd.NumRegIdTrip;
-                txtCalle.Text = rd.Calle;
-                txtNumExt.Text = rd.NumExt;
-                txtNumInt.Text = rd.NumInt;
-                cbColonia.Items.Add(rd.Colonia);
-                cbColonia.SelectedItem = rd.Colonia;
-                txtLocalidad.Text = rd.Localidad;
-                txtReferencia.Text = rd.Referencia;
-                txtMunicipio.Text = rd.Municipio;        
-                cbPais.SelectedItem = rd.Pais;
+                txtID.Text = rd.ID.ToString().Trim();
+                txtNombre.Text = rd.Nombre.Trim();
+                txtResFiscal.Text = rd.ResidenciaFiscal.Trim();
+                txtNumRegIdTrip.Text = rd.NumRegIdTrip.Trim();
+                txtCalle.Text = rd.Calle.Trim();
+                txtNumExt.Text = rd.NumExt.Trim();
+                txtNumInt.Text = rd.NumInt.Trim();
+                cbColonia.Items.Add(rd.Colonia.Trim());
+                cbColonia.SelectedItem = rd.Colonia.Trim();
+                txtLocalidad.Text = rd.Localidad.Trim();
+                txtReferencia.Text = rd.Referencia.Trim();
+                txtMunicipio.Text = rd.Municipio.Trim();        
+                cbPais.SelectedItem = rd.Pais.Trim();
                 cbEstado.SelectedItem = rd.Estado.Trim();
-                txtCodigoPostal.Text = rd.CodigoPostal;
-                txtNumMunicipio.Text = rd.NumMunicipio;
-                txtNumLocalidad.Text = rd.NumLocalidad;
-                txtNumColonia.Text = rd.NumColonia;
-                txtRFC.Text = rd.RFC;
+                txtCodigoPostal.Text = rd.CodigoPostal.Trim();
+                txtNumMunicipio.Text = rd.NumMunicipio.Trim();
+                txtNumLocalidad.Text = rd.NumLocalidad.Trim();
+                txtNumColonia.Text = rd.NumColonia.Trim();
+                txtRFC.Text = rd.RFC.Trim();
             }
             BloquearControles();
         }
@@ -645,7 +645,11 @@ namespace Two_Way_Trasnfer
             Close();
         }
 
-        private void txtID_GotFocus(object sender, RoutedEventArgs e)
+        private void txtResFiscal_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+      /*  private void txtID_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
             textBox.Dispatcher.BeginInvoke(new Action(() => textBox.SelectAll()));
@@ -663,10 +667,6 @@ namespace Two_Way_Trasnfer
             textBox.Dispatcher.BeginInvoke(new Action(() => textBox.SelectAll()));
         }
 
-        private void txtResFiscal_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
 
         private void txtResFiscal_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -763,7 +763,7 @@ namespace Two_Way_Trasnfer
         {
             TextBox textBox = (TextBox)sender;
             textBox.Dispatcher.BeginInvoke(new Action(() => textBox.SelectAll()));
-        }
+        }*/
 
         private void txtCodigoPostal_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -796,25 +796,25 @@ namespace Two_Way_Trasnfer
                     {
                         if (lector.FieldCount > 8)
                         {
-                            cbColonia.Items.Add(lector["Colonia"].ToString());
-                            txtLocalidad.Text = lector["Localidad"].ToString();
-                            txtMunicipio.Text = lector["Municipio"].ToString();
-                            pais = lector["Pais"].ToString();
-                            estado = lector["EstadoAbrev"].ToString();
-                            municipio = lector["NumMunicipio"].ToString();
-                            txtNumLocalidad.Text = lector["NumLocalidad"].ToString();
-                            txtNumColonia.Text = lector["NumColonia"].ToString();
+                            cbColonia.Items.Add(lector["Colonia"].ToString().Trim());
+                            txtLocalidad.Text = lector["Localidad"].ToString().Trim();
+                            txtMunicipio.Text = lector["Municipio"].ToString().Trim();
+                            pais = lector["Pais"].ToString().Trim();
+                            estado = lector["EstadoAbrev"].ToString().Trim();
+                            municipio = lector["NumMunicipio"].ToString().Trim();
+                            txtNumLocalidad.Text = lector["NumLocalidad"].ToString().Trim();
+                            txtNumColonia.Text = lector["NumColonia"].ToString().Trim();
                         }
                         else
                         {
-                            cbColonia.Items.Add(lector["Colonia"].ToString());
+                            cbColonia.Items.Add(lector["Colonia"].ToString().Trim());
                             txtLocalidad.Text = " ";
-                            txtMunicipio.Text = lector["Municipio"].ToString();
-                            pais = lector["Pais"].ToString();
+                            txtMunicipio.Text = lector["Municipio"].ToString().Trim();
+                            pais = lector["Pais"].ToString().Trim();
                             estado = lector["EstadoAbrev"].ToString().Trim();
-                            municipio = lector["NumMunicipio"].ToString();
+                            municipio = lector["NumMunicipio"].ToString().Trim();
                             txtNumLocalidad.Text = " ";
-                            txtNumColonia.Text = lector["NumColonia"].ToString();
+                            txtNumColonia.Text = lector["NumColonia"].ToString().Trim();
                         }
                     }
                     lector.Close();
@@ -847,11 +847,11 @@ namespace Two_Way_Trasnfer
                 }
                 SqlCommand cmd1 = new SqlCommand("sp_Estados", connection);
                 cmd1.CommandType = CommandType.StoredProcedure;
-                cmd1.Parameters.AddWithValue("@Pais", cbPais.SelectedItem.ToString());
+                cmd1.Parameters.AddWithValue("@Pais", cbPais.SelectedItem.ToString().Trim());
                 SqlDataReader lector2 = cmd1.ExecuteReader();
                 while (lector2.Read())
                 {
-                    cbEstado.Items.Add(lector2["c_Estado"].ToString());
+                    cbEstado.Items.Add(lector2["c_Estado"].ToString().Trim());
                 }
                 cbEstado.SelectedItem = null;
                 lector2.Close();

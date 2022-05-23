@@ -42,6 +42,7 @@ namespace Two_Way_Trasnfer
                 Con.Open();
                 SqlCommand cmd = new SqlCommand("BuscarRD", Con);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Tipo", chbID.IsChecked == true ? 1 : 0);
                 cmd.Parameters.AddWithValue("@Nombre", txtNombre.Text);
                 SqlDataReader lector = cmd.ExecuteReader();
                 while (lector.Read())
@@ -99,6 +100,18 @@ namespace Two_Way_Trasnfer
             {
                 btnBuscar_Click(sender, e);
             }
+        }
+
+        private void chbID_Checked(object sender, RoutedEventArgs e)
+        {
+        
+
+        }
+
+        private void chbID_Click(object sender, RoutedEventArgs e)
+        {
+            
+            lblnombre.Content = chbID.IsChecked == true ? "ID: " : "Nombre: ";
         }
     }
 }

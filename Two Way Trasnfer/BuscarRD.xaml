@@ -9,10 +9,11 @@
         Title="Buscar" Height="412.824" Width="1300.269" MinHeight="202.157" MinWidth="576.142">
     <Grid>
         <Label Content="Buscar" Margin="636,10,586,0" VerticalAlignment="Top" FontSize="16" FontFamily="Arial" FontStretch="UltraExpanded" FontWeight="Bold"/>
-        <Label Content="Nombre:" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <TextBox x:Name="txtNombre" Height="33" Margin="80,66,106,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" KeyDown="txtNombre_KeyDown_1"/>
-        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="1207,68,0,0" VerticalAlignment="Top" Width="75" FontSize="14" Click="btnBuscar_Click" RenderTransformOrigin="8.973,-0.182"/>
-        <DataGrid x:Name="dgvRD" Margin="10,115,10,16" MouseDoubleClick="dgvRD_MouseDoubleClick" IsReadOnly="True"/>
+        <Label x:Name="lblnombre" Content="Nombre:" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="txtNombre" Height="33" Margin="80,50,341,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" KeyDown="txtNombre_KeyDown_1"/>
+        <Button x:Name="btnBuscar" Content="Buscar" Margin="0,50,244,0" VerticalAlignment="Top" FontSize="14" Click="btnBuscar_Click" RenderTransformOrigin="8.973,-0.182" HorizontalAlignment="Right" Width="75"/>
+        <DataGrid x:Name="dgvRD" Margin="10,126,10,16" MouseDoubleClick="dgvRD_MouseDoubleClick" IsReadOnly="True"/>
+        <CheckBox x:Name="chbID" Content="Buscar Por ID?" Margin="10,94,1165,0" VerticalAlignment="Top" FontSize="14" FontFamily="Arial" FontWeight="Bold" Checked="chbID_Checked" Click="chbID_Click"/>
 
     </Grid>
 </Controls:MetroWindow>
