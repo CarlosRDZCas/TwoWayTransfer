@@ -17,7 +17,7 @@ namespace Two_Way_Trasnfer.Clases.FacturasProveedores
         public string Moneda { get; set; }
         public double TipoCambio { get; set; }
         public string Lugar { get; set; }
-        public int Factura { get; set; }
+        public string Factura { get; set; }
         public int Reference { get; set; }
         public string Concepto { get; set; }
         public DateTime Vence { get; set; }

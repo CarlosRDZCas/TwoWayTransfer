@@ -15,7 +15,7 @@ namespace Two_Way_Trasnfer.Clases.FacturasProveedores
         public string RFC { get; set; }
         public int DiasCredito { get; set; }
         public string Tipo { get; set; } //
-        public int Factura { get; set; }
+        public string Factura { get; set; }
         public double Importe { get; set; }
         public DateTime Fecha { get; set; }
         public string Ruta { get; set; }
