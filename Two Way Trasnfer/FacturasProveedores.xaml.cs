@@ -879,10 +879,8 @@ namespace Two_Way_Trasnfer
                         cmd3.Parameters.AddWithValue("@fecha", DateTime.Parse(reader["FechaEmision"].ToString()));
                         cmd3.Parameters.AddWithValue("@ruta", ruta.Trim());
                         cmd3.Parameters.AddWithValue("@Usuario", "GRUPO LOPINSA S.A. DE C.V.");
-                        cmd3.Parameters.AddWithValue("@FechaPDF", DateTime.Parse(reader["FechaEmision"].ToString()));
                         cmd3.Parameters.AddWithValue("@FechaXML", DateTime.Parse(reader["FechaEmision"].ToString()));
-                        cmd3.Parameters.AddWithValue("@FechaSoporte", DateTime.Parse(reader["FechaEmision"].ToString()));
-                        cmd3.Parameters.AddWithValue("@PDF", reader["Factura"].ToString() + "_" + reader["ID"].ToString() + ".pdf");
+                        cmd3.Parameters.AddWithValue("@PDF", "");
                         cmd3.Parameters.AddWithValue("@XML", reader["Factura"].ToString() + "_" + reader["ID"].ToString() + ".xml");
                         cmd3.ExecuteNonQuery();
                         int anio = DateTime.Parse(reader["FechaEmision"].ToString()).Year;
@@ -893,8 +891,7 @@ namespace Two_Way_Trasnfer
                         }
                         using (FileStream fs = File.Create(@"P:\validaciones\xml\LOPINSA\" + anio + mes + "/" + dia + "/01/" + reader["Factura"].ToString() + "_" + reader["ID"].ToString() + ".xml"))
                         {
-                            byte[] info = new UTF8Encoding(true).GetBytes(reader["FacturaElectronica"].ToString());
-                            // Add some information to the file.
+                            byte[] info = new UTF8Encoding(true).GetBytes(reader["FacturaElectronica"].ToString());                   
                             fs.Write(info, 0, info.Length);
                         }
                     }
