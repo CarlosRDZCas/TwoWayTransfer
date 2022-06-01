@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Facturas Proveedores" Height="451" Width="1080" WindowState="Maximized" ResizeMode="CanMinimize" >
     <Grid>
-        <DataGrid x:Name="dgProveedoresFacturas"  Margin="0,83,0,0"  AutoGeneratingColumn="dgProveedoresFacturas_AutoGeneratingColumn" CanUserAddRows="False" CanUserDeleteRows="False" ColumnWidth="Auto" BorderBrush="#B2008A00"/>
+        <DataGrid x:Name="dgProveedoresFacturas"  Margin="0,83,0,0"  AutoGeneratingColumn="dgProveedoresFacturas_AutoGeneratingColumn" CanUserAddRows="False" CanUserDeleteRows="False" ColumnWidth="Auto" BorderBrush="#B2008A00" GridLinesVisibility="None"/>
         <Button x:Name="bntProcesar" Content="Procesar" Margin="0,40,3,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="37" Click="bntProcesar_Click" HorizontalAlignment="Left" Width="107">
             <Button.RenderTransform>
                 <TransformGroup>

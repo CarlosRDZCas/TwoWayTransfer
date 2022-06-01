@@ -132,7 +132,8 @@ namespace Two_Way_Trasnfer
                     SqlDataReader reader4 = cmd.ExecuteReader();
                     while (reader4.Read())
                     {
-                        consecutivoMarissa = int.Parse(reader4["consecutivo"].ToString());
+                        string a = reader4["consecutivo"].ToString();
+                        consecutivoMarissa =reader4["consecutivo"].ToString() == "" ? 1 : int.Parse(reader4["consecutivo"].ToString());
                     }
                 }
                 consecutivoMarissa++;
@@ -145,7 +146,7 @@ namespace Two_Way_Trasnfer
                     SqlDataReader reader4 = cmd.ExecuteReader();
                     while (reader4.Read())
                     {
-                        consecutivoLozano = int.Parse(reader4["consecutivo"].ToString());
+                        consecutivoLozano = reader4["consecutivo"].ToString() == "" ? 1 : int.Parse(reader4["consecutivo"].ToString());
                     }
                 }
                 consecutivoLozano++;
@@ -230,7 +231,7 @@ namespace Two_Way_Trasnfer
                                 proveedor.TipoCambio = comp.TipoCambio;
                                 proveedor.Debe = comp.Total;
                                 proveedor.Lugar = Lugar;
-                                proveedor.Factura = comp.Folio;
+                                proveedor.Factura = comp.Folio.Substring(3);
                                 proveedor.Rfcreceptor = comp.Receptor.Rfc;
                                 proveedor.Reference = int.Parse(Factura);
                                 foreach (var item in comp.Conceptos.Concepto)
@@ -284,7 +285,7 @@ namespace Two_Way_Trasnfer
                                 proveedor.Debe = proveedor.Moneda == "USD" ? comp.Total * 20 : comp.Total;
                                 proveedor.Lugar = Lugar;
                                 proveedor.Rfcreceptor = comp.Receptor.Rfc;
-                                proveedor.Factura = comp.Folio;
+                                proveedor.Factura = comp.Folio.Substring(3);
                                 proveedor.Reference = int.Parse(Factura);
                                 foreach (var item in comp.Conceptos.Concepto)
                                 {
@@ -312,7 +313,7 @@ namespace Two_Way_Trasnfer
                                 contra.NumeroProveedor = proveedor.NumeroProveedor;
                                 contra.Proveedor = proveedor.Nombre;
                                 contra.Factura = int.Parse(comp.Folio.Substring(3));
-                                contra.Importe = proveedor.ValorUnitario+proveedor.Iva-proveedor.Retencion;
+                                contra.Importe = proveedor.ValorUnitario + proveedor.Iva - proveedor.Retencion;
                                 contra.Poliza = "A " + consecutivoLozano;
                                 contra.Vencimiento = proveedor.Vence.ToShortDateString();
                                 listTWT.Add(contra);
@@ -718,7 +719,7 @@ namespace Two_Way_Trasnfer
                 insertCommand.Parameters.Add("Haber", OleDbType.Numeric).Value = proveedor.Debe;
                 insertCommand.Parameters.Add("Lugar", OleDbType.Char).Value = proveedor.Lugar;
                 insertCommand.Parameters.Add("Faco", OleDbType.Numeric).Value = 0;
-                insertCommand.Parameters.Add("Factura", OleDbType.Numeric).Value = int.Parse(proveedor.Factura.Substring(3));
+                insertCommand.Parameters.Add("Factura", OleDbType.Numeric).Value = int.Parse(proveedor.Factura);
                 insertCommand.Parameters.Add("Reference", OleDbType.Numeric).Value = proveedor.Reference;
                 insertCommand.Parameters.Add("Concepto", OleDbType.Char).Value = proveedor.Concepto;
                 insertCommand.Parameters.Add("Fecha_mtc", OleDbType.Date).Value = null;
@@ -787,7 +788,7 @@ namespace Two_Way_Trasnfer
                 insertCommand.Parameters.Add("Haber", OleDbType.Numeric).Value = proveedor.Debe;
                 insertCommand.Parameters.Add("Lugar", OleDbType.Char).Value = proveedor.Lugar;
                 insertCommand.Parameters.Add("Faco", OleDbType.Numeric).Value = 0;
-                insertCommand.Parameters.Add("Factura", OleDbType.Numeric).Value = int.Parse(proveedor.Factura.Substring(3));
+                insertCommand.Parameters.Add("Factura", OleDbType.Numeric).Value = int.Parse(proveedor.Factura);
                 insertCommand.Parameters.Add("Reference", OleDbType.Numeric).Value = proveedor.Reference;
                 insertCommand.Parameters.Add("Concepto", OleDbType.Char).Value = proveedor.Concepto;
                 insertCommand.Parameters.Add("Fecha_mtc", OleDbType.Date).Value = null;
@@ -886,12 +887,12 @@ namespace Two_Way_Trasnfer
                         int anio = DateTime.Parse(reader["FechaEmision"].ToString()).Year;
                         string mes = DateTime.Parse(reader["FechaEmision"].ToString()).Month < 10 ? "0" + DateTime.Parse(reader["FechaEmision"].ToString()).Month : DateTime.Parse(reader["FechaEmision"].ToString()).Month.ToString();
                         string dia = DateTime.Parse(reader["FechaEmision"].ToString()).Day < 10 ? "0" + DateTime.Parse(reader["FechaEmision"].ToString()).Day : DateTime.Parse(reader["FechaEmision"].ToString()).Day.ToString();
-                        if(!Directory.Exists(@"P:\validaciones\xml\LOPINSA\" + anio + mes + "/" + dia + "/01/")) {
+                        if (!Directory.Exists(@"P:\validaciones\xml\LOPINSA\" + anio + mes + "/" + dia + "/01/")) {
                             Directory.CreateDirectory(@"P:\validaciones\xml\LOPINSA\" + anio + mes + "/" + dia + "/01/");
                         }
                         using (FileStream fs = File.Create(@"P:\validaciones\xml\LOPINSA\" + anio + mes + "/" + dia + "/01/" + reader["Factura"].ToString() + "_" + reader["ID"].ToString() + ".xml"))
                         {
-                            byte[] info = new UTF8Encoding(true).GetBytes(reader["FacturaElectronica"].ToString());                   
+                            byte[] info = new UTF8Encoding(true).GetBytes(reader["FacturaElectronica"].ToString());
                             fs.Write(info, 0, info.Length);
                         }
                     }
@@ -1131,6 +1132,7 @@ namespace Two_Way_Trasnfer
                         nombre = reader["Espanol"].ToString();
                     }
                     return nombre;
+                    
                 }
             }
             else
