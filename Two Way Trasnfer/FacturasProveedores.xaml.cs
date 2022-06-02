@@ -133,7 +133,7 @@ namespace Two_Way_Trasnfer
                     while (reader4.Read())
                     {
                         string a = reader4["consecutivo"].ToString();
-                        consecutivoMarissa =reader4["consecutivo"].ToString() == "" ? 1 : int.Parse(reader4["consecutivo"].ToString());
+                        consecutivoMarissa =reader4["consecutivo"].ToString() == "" ? 0 : int.Parse(reader4["consecutivo"].ToString());
                     }
                 }
                 consecutivoMarissa++;
@@ -146,7 +146,7 @@ namespace Two_Way_Trasnfer
                     SqlDataReader reader4 = cmd.ExecuteReader();
                     while (reader4.Read())
                     {
-                        consecutivoLozano = reader4["consecutivo"].ToString() == "" ? 1 : int.Parse(reader4["consecutivo"].ToString());
+                        consecutivoLozano = reader4["consecutivo"].ToString() == "" ? 0 : int.Parse(reader4["consecutivo"].ToString());
                     }
                 }
                 consecutivoLozano++;
@@ -222,6 +222,7 @@ namespace Two_Way_Trasnfer
                             {
                                 path = @"P:/marissa/twofacpro.dbf";
                                 proveedor.Empresa = 1;
+                                proveedor.NomEmpresa = "TWL";
                                 proveedor.NumeroProveedor = proveedorSql.Numero;
                                 proveedor.Fecha = proveedorSql.Fecha;
                                 string Lugar = proveedorSql.Factura.Substring(0, 3);
@@ -275,6 +276,7 @@ namespace Two_Way_Trasnfer
                             {
                                 path = @"P:/lozano/twofacpro.dbf";
                                 proveedor.Empresa = 1;
+                                proveedor.NomEmpresa = "TWT";
                                 proveedor.NumeroProveedor = proveedorSql.Numero;
                                 proveedor.Fecha = proveedorSql.Fecha;
                                 string Lugar = proveedorSql.Factura.Substring(0, 3);
@@ -459,6 +461,7 @@ namespace Two_Way_Trasnfer
                                 {
                                     path = @"P:/marissa/twofacpro.dbf";
                                     proveedor.Empresa = 1;
+                                    proveedor.NomEmpresa = "TWL";                                    
                                     proveedor.NumeroProveedor = proveedorSql.Numero;
                                     proveedor.Fecha = proveedorSql.Fecha;
                                     int index = proveedorSql.XML.IndexOf(' ');
@@ -514,6 +517,7 @@ namespace Two_Way_Trasnfer
                                 {
                                     path = @"P:/lozano/twofacpro.dbf";
                                     proveedor.Empresa = 1;
+                                    proveedor.NomEmpresa = "TWT";
                                     proveedor.NumeroProveedor = proveedorSql.Numero;
                                     proveedor.Fecha = proveedorSql.Fecha;
                                     int index = proveedorSql.XML.IndexOf(' ');
@@ -714,7 +718,7 @@ namespace Two_Way_Trasnfer
                 OleDbCommand insertCommand = new OleDbCommand(insertStatement, yourConnectionHandler);
                 insertCommand.Parameters.Add("Empresa", OleDbType.Numeric).Value = proveedor.Empresa;
                 insertCommand.Parameters.Add("Numero", OleDbType.Numeric).Value = proveedor.NumeroProveedor;
-                insertCommand.Parameters.Add("Fecha", OleDbType.Date).Value = proveedor.Fecha;
+                insertCommand.Parameters.Add("Fecha", OleDbType.Date).Value = DateTime.Now;
                 insertCommand.Parameters.Add("Debe", OleDbType.Numeric).Value = 0.0;
                 insertCommand.Parameters.Add("Haber", OleDbType.Numeric).Value = proveedor.Debe;
                 insertCommand.Parameters.Add("Lugar", OleDbType.Char).Value = proveedor.Lugar;
@@ -759,6 +763,8 @@ namespace Two_Way_Trasnfer
                         cmd.Parameters.AddWithValue("@rfcreceptor", proveedor.Rfcreceptor);
                         cmd.Parameters.AddWithValue("@monedaxml", proveedor.Moneda);
                         cmd.Parameters.AddWithValue("@SubtotalXML", proveedor.SubtotalXML);
+                        cmd.Parameters.AddWithValue("@Empresa", proveedor.NomEmpresa);
+                        cmd.Parameters.AddWithValue("@NoProv", proveedor.NumeroProveedor);
                         cmd.Parameters.AddWithValue("@UsuarioProcesado", Usuario);
                         cmd.ExecuteNonQuery();
                     }
@@ -783,7 +789,7 @@ namespace Two_Way_Trasnfer
                 OleDbCommand insertCommand = new OleDbCommand(insertStatement, yourConnectionHandler);
                 insertCommand.Parameters.Add("Empresa", OleDbType.Numeric).Value = proveedor.Empresa;
                 insertCommand.Parameters.Add("Numero", OleDbType.Numeric).Value = proveedor.NumeroProveedor;
-                insertCommand.Parameters.Add("Fecha", OleDbType.Date).Value = proveedor.Fecha;
+                insertCommand.Parameters.Add("Fecha", OleDbType.Date).Value = DateTime.Now;
                 insertCommand.Parameters.Add("Debe", OleDbType.Numeric).Value = 0.0;
                 insertCommand.Parameters.Add("Haber", OleDbType.Numeric).Value = proveedor.Debe;
                 insertCommand.Parameters.Add("Lugar", OleDbType.Char).Value = proveedor.Lugar;
@@ -824,6 +830,8 @@ namespace Two_Way_Trasnfer
                         cmd.Parameters.AddWithValue("@rfcreceptor", proveedor.Rfcreceptor);
                         cmd.Parameters.AddWithValue("@monedaxml", proveedor.Moneda);
                         cmd.Parameters.AddWithValue("@SubtotalXML", proveedor.SubtotalXML);
+                        cmd.Parameters.AddWithValue("@Empresa", proveedor.NomEmpresa);
+                        cmd.Parameters.AddWithValue("@NoProv", proveedor.NumeroProveedor);
                         cmd.Parameters.AddWithValue("@UsuarioProcesado", Usuario);
                         cmd.ExecuteNonQuery();
                     }

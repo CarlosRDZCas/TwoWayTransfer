@@ -28,5 +28,6 @@ namespace Two_Way_Trasnfer.Clases.FacturasProveedores
         public double ValorUnitario { get; set; }
         public double Iva { get; set; }
         public double Retencion { get; set; }
+        public string NomEmpresa { get; set; }
     }
 }
